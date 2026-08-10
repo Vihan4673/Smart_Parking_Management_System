@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/Api_Gateway/pom.xml" />
         <option value="$PROJECT_DIR$/Eureka_Server/pom.xml" />
+        <option value="$PROJECT_DIR$/Config_Server/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
