@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: User-Service   # Must match the config file in your Git repo
+
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: Config_Server
+      fail-fast: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
