@@ -8,10 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Parking_Space_Service" />
-        <module name="Config_Server" />
+        <module name="Vehicle_Service" />
         <module name="API_Gateway" />
         <module name="User_Service" />
+        <module name="Config_Server" />
         <module name="Eureka_Server" />
+        <module name="Payment_Service" />
       </profile>
     </annotationProcessing>
   </component>
@@ -21,7 +23,9 @@
       <module name="Config_Server" options="-parameters" />
       <module name="Eureka_Server" options="-parameters" />
       <module name="Parking_Space_Service" options="-parameters" />
+      <module name="Payment_Service" options="-parameters" />
       <module name="User_Service" options="-parameters" />
+      <module name="Vehicle_Service" options="-parameters" />
     </option>
   </component>
 </project>
