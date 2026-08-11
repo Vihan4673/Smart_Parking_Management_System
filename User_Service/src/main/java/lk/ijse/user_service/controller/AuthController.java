@@ -43,11 +43,9 @@ public class AuthController {
                     new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
             );
 
-            // ✅ Get UserDetails
             org.springframework.security.core.userdetails.User principal =
                     (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
 
-            // ✅ Fetch user info from DB to get role
             User user = userRepository.findByEmail(principal.getUsername()).orElseThrow();
 
             UserDTO userDTO = new UserDTO();
