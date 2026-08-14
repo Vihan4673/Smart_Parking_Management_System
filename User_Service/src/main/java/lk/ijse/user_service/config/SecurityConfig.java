@@ -21,6 +21,8 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
+                        // /api/users/register සහ /api/users/login දෙකටම පබ්ලික් අවසර දෙන්න
+                        .requestMatchers("/api/users/register", "/api/users/login").permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
                         .anyRequest().authenticated()
                 )
