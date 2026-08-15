@@ -33,14 +33,13 @@ public class JwtFilter implements GlobalFilter {
             "/vehicles/user", List.of("USER", "DRIVER"),
             "/payments/user", List.of("USER", "DRIVER"),
             "/reservations/user", List.of("USER", "DRIVER"),
-            "/public", List.of("ANY") // Optional: allow public APIs
+            "/public", List.of("ANY")
     );
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String path = exchange.getRequest().getURI().getPath();
 
-        // Skip login/register endpoints
         if (path.contains("/user_service/api/auth/login") || path.contains("/user_service/api/auth/register")) {
             return chain.filter(exchange);
         }
@@ -52,20 +51,18 @@ public class JwtFilter implements GlobalFilter {
             return exchange.getResponse().setComplete();
         }
 
-        String token = authHeader.substring(7); // remove "Bearer "
+        String token = authHeader.substring(7);
 
         if (!jwtUtil.isTokenValid(token)) {
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
             return exchange.getResponse().setComplete();
         }
 
-        // Extract user info
         String email = jwtUtil.getUsername(token);
         String role = jwtUtil.getUserRole(token);
 
         System.out.println(email + " " + role);
 
-        // Add headers to pass to downstream services
         ServerHttpRequest modifiedRequest = exchange.getRequest()
                 .mutate()
                 .header("X-User-Email", email)

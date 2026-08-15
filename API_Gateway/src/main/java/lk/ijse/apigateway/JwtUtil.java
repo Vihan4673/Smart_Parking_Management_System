@@ -20,11 +20,9 @@ public class JwtUtil {
 
     @PostConstruct
     public void init() {
-        // This ensures the key is only built once when the component is initialized
         secretKey = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
     }
 
-    // Get all claims from token
     public Claims getAllClaimsFromToken(String token) throws JwtException {
         return Jwts.parserBuilder()
                 .setSigningKey(secretKey)
@@ -33,7 +31,6 @@ public class JwtUtil {
                 .getBody();
     }
 
-    // Check token validity
     public boolean isTokenValid(String token) {
         try {
             Claims claims = getAllClaimsFromToken(token);
