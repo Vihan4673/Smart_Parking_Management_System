@@ -1,7 +1,6 @@
 # Smart Parking Management System (SPMS)
 
 
-A microservices-based cloud-native platform designed to optimize urban space utilization by offering real-time parking availability tracking, dynamic spot reservations, vehicle tracking, and automated digital payment simulations.
 
 ---
 
