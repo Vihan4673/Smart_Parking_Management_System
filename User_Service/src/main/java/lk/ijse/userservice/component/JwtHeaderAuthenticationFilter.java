@@ -1,4 +1,4 @@
-package lk.ijse.user_service.component;
+package lk.ijse.userservice.component;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

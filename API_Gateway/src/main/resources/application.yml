@@ -16,36 +16,27 @@ spring:
           uri: lb://PARKING-SPACE-SERVICE
           predicates:
             - Path=/parking_space_service/**
-          filters:
-            - StripPrefix=1
 
-        - id: user-service
-          uri: lb://USER-SERVICE          # Eureka එකේ පෙන්නන්නේ USER_SERVICE නම් මෙතනත් Underscore යොදන්න
+        - id: User-Service
+          uri: lb://USER-SERVICE
           predicates:
             - Path=/user_service/**
-          filters:
-            - StripPrefix=1
 
-        - id: vehicle-service
-          uri: lb://VEHICLE-SERVICE        # Eureka එකේ තිබුණු නමට සමාන කරන්න (VEHICLE-SERVICE හෝ VEHICLE_SERVICE)
+        - id: Vehicle-Service
+          uri: lb://VEHICLE-SERVICE
           predicates:
             - Path=/vehicle_service/**
-          filters:
-            - StripPrefix=1
 
         - id: payment-service
           uri: lb://PAYMENT-SERVICE
           predicates:
             - Path=/payment_service/**
-          filters:
-            - StripPrefix=1
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
 
 jwt:
   secret: 2D4A614E645267556B58703273357638792F423F4428472B4B6250655368566DF423F4428472B4B6250655368566D
+
