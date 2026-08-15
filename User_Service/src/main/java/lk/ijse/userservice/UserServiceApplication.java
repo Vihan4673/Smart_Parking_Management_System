@@ -1,4 +1,4 @@
-package lk.ijse.user_service;
+package lk.ijse.userservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

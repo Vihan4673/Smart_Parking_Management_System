@@ -1,11 +1,10 @@
-package lk.ijse.user_service.service;
+package lk.ijse.userservice.service;
 
-
-import lk.ijse.user_service.dto.ReservationDTO;
-import lk.ijse.user_service.dto.UserHistoryDTO;
-import lk.ijse.user_service.entity.User;
-import lk.ijse.user_service.repo.UserRepository;
-import lk.ijse.user_service.util.ParkingSpaceClient;
+import lk.ijse.userservice.dto.ReservationDTO;
+import lk.ijse.userservice.dto.UserHistoryDTO;
+import lk.ijse.userservice.entity.User;
+import lk.ijse.userservice.repo.UserRepository;
+import lk.ijse.userservice.util.ParkingSpaceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,10 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class UserService implements UserDetailsService {

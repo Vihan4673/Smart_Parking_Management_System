@@ -1,6 +1,6 @@
-package lk.ijse.user_service.dto;
+package lk.ijse.userservice.dto;
 
-import lk.ijse.user_service.entity.User;
+import lk.ijse.userservice.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

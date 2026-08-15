@@ -1,4 +1,4 @@
-package lk.ijse.user_service;
+package lk.ijse.userservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
