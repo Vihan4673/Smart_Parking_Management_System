@@ -10,7 +10,8 @@
 
 ## 📸 Eureka Dashboard
 
-![Eureka Dashboard](./docs/screenshots/eureka_dashboard.png)
+<img width="1592" height="780" alt="eureka_dashboard" src="https://github.com/user-attachments/assets/9155e560-f0f8-4a3e-8a65-66c2385cab2c" />
+
 
 ---
 
