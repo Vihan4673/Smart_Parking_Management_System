@@ -27,7 +27,6 @@ public class VehicleService {
     }
 
     public Vehicle updateVehicle(Long vehicleId, Vehicle vehicle) {
-        // implement update logic
         return null;
     }
 
@@ -36,10 +35,8 @@ public class VehicleService {
     }
 
     public void vehicleEntry(Long vehicleId) {
-        // implement entry simulation logic
     }
 
     public void vehicleExit(Long vehicleId) {
-        // implement exit simulation logic
     }
 }

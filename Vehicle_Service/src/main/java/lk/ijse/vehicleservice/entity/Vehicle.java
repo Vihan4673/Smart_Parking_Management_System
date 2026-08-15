@@ -18,7 +18,6 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Assuming User entity is in another service, you can map user_id as Long or as a relation if User entity is available
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
