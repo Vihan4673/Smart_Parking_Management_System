@@ -6,9 +6,8 @@
 
 ## Resources
 
-- [Postman Collection](./postman_collection.jso)
+- [Postman Collection](postman_collection.json)
 
-- 
 Eureka Dashboard
 <img width="1592" height="780" alt="eureka_dashboard" src="https://github.com/user-attachments/assets/f34fcf6e-18c6-459d-a169-30edc0c231a2" />
 
