@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "parking-space-service", fallback = ParkingSpaceFallback.class) // name must match spring.application.name
+@FeignClient(name = "parking-space-service", fallback = ParkingSpaceFallback.class)
 public interface ParkingSpaceClient {
 
     @GetMapping("/parking_space_service/api/reservations/user/{userId}")

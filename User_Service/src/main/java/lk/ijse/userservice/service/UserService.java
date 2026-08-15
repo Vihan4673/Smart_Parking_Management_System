@@ -41,12 +41,10 @@ public class UserService implements UserDetailsService {
     }
 
     public User registerUser(User user) {
-        // implement registration logic
         return userRepository.save(user);
     }
 
     public String login(String username, String password) {
-        // implement authentication and return token
         return null;
     }
 
@@ -62,7 +60,6 @@ public class UserService implements UserDetailsService {
 
     public User updateUser(Long id, User user) {
         return userRepository.findById(id).map(existingUser -> {
-            // Update fields - only update if new value is not null to avoid overwriting with null
             if (user.getUsername() != null) {
                 existingUser.setUsername(user.getUsername());
             }
@@ -81,7 +78,6 @@ public class UserService implements UserDetailsService {
             if (user.getPhone() != null) {
                 existingUser.setPhone(user.getPhone());
             }
-            // Note: createdAt is not updated as it is set on creation
 
             return userRepository.save(existingUser);
         }).orElseThrow(() -> new RuntimeException("User not found with id " + id));

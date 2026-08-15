@@ -34,7 +34,7 @@ feign:
 resilience4j:
   circuitbreaker:
     instances:
-      myClient:           # Match the name of your Feign client
+      myClient:
         registerHealthIndicator: true
         slidingWindowSize: 5
         failureRateThreshold: 50

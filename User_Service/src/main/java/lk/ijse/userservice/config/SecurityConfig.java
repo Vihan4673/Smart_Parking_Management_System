@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity // Controller එකේ @PreAuthorize("hasRole('ADMIN')") වැඩ කිරීමට අවශ්‍යයි
+@EnableMethodSecurity
 public class SecurityConfig {
 
     @Bean
@@ -23,9 +23,8 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        // AuthController එකේ /api/auth/login සහ /api/auth/register වලට permission දෙන්න
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/error").permitAll() // Dispatcher error forwarding සඳහා
+                        .requestMatchers("/error").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(customFilter, UsernamePasswordAuthenticationFilter.class)

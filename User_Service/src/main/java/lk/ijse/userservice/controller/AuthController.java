@@ -42,11 +42,9 @@ public class AuthController {
                     new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
             );
 
-            // ✅ Get UserDetails
             org.springframework.security.core.userdetails.User principal =
                     (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
 
-            // ✅ Fetch user info from DB to get role
             User user = userRepository.findByEmail(principal.getUsername()).orElseThrow();
 
             UserDTO userDTO = new UserDTO();
@@ -68,7 +66,6 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already registered");
         }
 
-        // Save user
         User user = new User();
         user.setEmail(userDTO.getEmail());
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
@@ -78,7 +75,6 @@ public class AuthController {
         user.setUsername(userDTO.getUsername());
         userRepository.save(user);
 
-        // Generate JWT
         String token = jwtUtil.generateToken(userDTO);
 
         return ResponseEntity.ok(new AuthResponse(token));

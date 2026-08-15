@@ -12,7 +12,6 @@ public class ParkingSpaceFallback implements ParkingSpaceClient {
 
     @Override
     public List<ReservationDTO> getReservationsByUser(Long userId) {
-        // Fallback logic
-        return Collections.emptyList(); // or cache data, or throw custom exception
+        return Collections.emptyList();
     }
 }
