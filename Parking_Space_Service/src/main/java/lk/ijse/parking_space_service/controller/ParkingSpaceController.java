@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/spaces")
-@RequiredArgsConstructor // Field Injection වෙනුවට Constructor Injection සඳහා
+@RequiredArgsConstructor
 public class ParkingSpaceController {
 
     private final ParkingSpaceService service;
@@ -20,7 +20,6 @@ public class ParkingSpaceController {
     @PostMapping
     public ResponseEntity<ParkingSpace> createSpace(@RequestBody ParkingSpace space) {
         ParkingSpace created = service.createSpace(space);
-        // Created (201 Created) status code එකක් Return කිරීම REST Best Practice එකකි
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 

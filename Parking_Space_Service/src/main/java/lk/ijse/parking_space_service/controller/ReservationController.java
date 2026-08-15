@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/reservations")
-@RequiredArgsConstructor // Field Injection වෙනුවට Constructor Injection සඳහා
+@RequiredArgsConstructor
 public class ReservationController {
 
     private final ReservationService reservationService;
@@ -20,7 +20,6 @@ public class ReservationController {
     @PostMapping
     public ResponseEntity<Reservations> createReservation(@RequestBody Reservations reservation) {
         Reservations created = reservationService.createReservation(reservation);
-        // Resource එකක් Create කරද්දී HTTP 201 Created Status code එකක් Return කිරීම REST Best Practice එකකි
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 

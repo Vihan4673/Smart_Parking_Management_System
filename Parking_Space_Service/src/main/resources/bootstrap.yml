@@ -1,6 +1,6 @@
 spring:
   application:
-    name: parking-space-service   # This matches the config file name in the repo
+    name: parking-space-service
   cloud:
     config:
-      uri: http://localhost:8888  # URL of the config server
+      uri: http://localhost:8888
