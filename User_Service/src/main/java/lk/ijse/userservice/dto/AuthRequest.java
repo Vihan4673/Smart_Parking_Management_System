@@ -1,4 +1,4 @@
-package lk.ijse.user_service.dto;
+package lk.ijse.userservice.dto;
 
 import lombok.Data;
 

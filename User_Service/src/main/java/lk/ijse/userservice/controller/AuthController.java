@@ -1,12 +1,11 @@
-package lk.ijse.user_service.controller;
+package lk.ijse.userservice.controller;
 
-
-import lk.ijse.user_service.dto.AuthRequest;
-import lk.ijse.user_service.dto.AuthResponse;
-import lk.ijse.user_service.dto.UserDTO;
-import lk.ijse.user_service.entity.User;
-import lk.ijse.user_service.repo.UserRepository;
-import lk.ijse.user_service.util.JwtUtil;
+import lk.ijse.userservice.dto.AuthRequest;
+import lk.ijse.userservice.dto.AuthResponse;
+import lk.ijse.userservice.dto.UserDTO;
+import lk.ijse.userservice.entity.User;
+import lk.ijse.userservice.repo.UserRepository;
+import lk.ijse.userservice.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,9 +42,11 @@ public class AuthController {
                     new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
             );
 
+            // ✅ Get UserDetails
             org.springframework.security.core.userdetails.User principal =
                     (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
 
+            // ✅ Fetch user info from DB to get role
             User user = userRepository.findByEmail(principal.getUsername()).orElseThrow();
 
             UserDTO userDTO = new UserDTO();
