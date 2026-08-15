@@ -7,7 +7,8 @@
 ## Resources
 
 - [Postman Collection](./postman_collection.json)
-- ![Eureka Dashboard](./docs/screenshots/eureka_dashboard.png)
+- ![Eureka Dashboard](./docs/screenshots/eureka_dashboard.png)<img width="1440" height="891" alt="eureka_dashboard" src="https://github.com/user-attachments/assets/411fb1aa-6fa0-4099-95bf-e96e9b0f68fe" />
+
 
 ---
 
