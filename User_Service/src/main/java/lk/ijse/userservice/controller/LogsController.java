@@ -1,7 +1,7 @@
-package lk.ijse.user_service.controller;
+package lk.ijse.userservice.controller;
 
-import lk.ijse.user_service.entity.Logs;
-import lk.ijse.user_service.service.LogsService;
+import lk.ijse.userservice.entity.Logs;
+import lk.ijse.userservice.service.LogsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

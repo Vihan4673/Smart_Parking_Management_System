@@ -1,6 +1,6 @@
-package lk.ijse.user_service.repo;
+package lk.ijse.userservice.repo;
 
-import lk.ijse.user_service.entity.Logs;
+import lk.ijse.userservice.entity.Logs;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

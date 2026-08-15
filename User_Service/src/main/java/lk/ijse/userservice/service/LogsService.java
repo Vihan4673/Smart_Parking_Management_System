@@ -1,8 +1,7 @@
-package lk.ijse.user_service.service;
+package lk.ijse.userservice.service;
 
-
-import lk.ijse.user_service.entity.Logs;
-import lk.ijse.user_service.repo.LogsRepository;
+import lk.ijse.userservice.entity.Logs;
+import lk.ijse.userservice.repo.LogsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

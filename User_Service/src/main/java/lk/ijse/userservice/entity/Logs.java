@@ -1,4 +1,4 @@
-package lk.ijse.user_service.entity;
+package lk.ijse.userservice.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

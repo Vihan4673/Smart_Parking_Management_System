@@ -1,4 +1,4 @@
-package lk.ijse.apigateway;
+package lk.ijse.apigateway.util;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
