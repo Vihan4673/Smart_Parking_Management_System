@@ -1,25 +1,26 @@
 package lk.ijse.parking_space_service.controller;
 
 import lk.ijse.parking_space_service.entity.ParkingZones;
-import lk.ijse.parking_space_service.entity.ParkingSpace; // Assuming this entity exists
+import lk.ijse.parking_space_service.entity.ParkingSpace;
 import lk.ijse.parking_space_service.service.ParkingZoneService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/zones")
+@RequiredArgsConstructor
 public class ParkingZoneController {
-    @Autowired
-    private ParkingZoneService parkingZoneService;
+
+    private final ParkingZoneService parkingZoneService;
 
     @PostMapping
     public ResponseEntity<ParkingZones> createZone(@RequestBody ParkingZones zone) {
         ParkingZones createdZone = parkingZoneService.createZone(zone);
-        return ResponseEntity.ok(createdZone);
+        return new ResponseEntity<>(createdZone, HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -30,8 +31,8 @@ public class ParkingZoneController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ParkingZones> getZoneById(@PathVariable Long id) {
-        Optional<ParkingZones> zone = parkingZoneService.getZoneById(id);
-        return zone.map(ResponseEntity::ok)
+        return parkingZoneService.getZoneById(id)
+                .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 

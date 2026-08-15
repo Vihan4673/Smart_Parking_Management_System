@@ -1,7 +1,7 @@
-package lk.ijse.user_service.util;
+package lk.ijse.userservice.util;
 
-import lk.ijse.user_service.component.ParkingSpaceFallback;
-import lk.ijse.user_service.dto.ReservationDTO;
+import lk.ijse.userservice.component.ParkingSpaceFallback;
+import lk.ijse.userservice.dto.ReservationDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

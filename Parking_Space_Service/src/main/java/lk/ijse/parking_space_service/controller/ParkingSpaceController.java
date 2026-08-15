@@ -3,7 +3,8 @@ package lk.ijse.parking_space_service.controller;
 import lk.ijse.parking_space_service.entity.ParkingSpace;
 import lk.ijse.parking_space_service.service.ParkingSpaceService;
 import lk.ijse.parking_space_service.util.ParkingStatus;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,21 +12,22 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/spaces")
+@RequiredArgsConstructor // Field Injection වෙනුවට Constructor Injection සඳහා
 public class ParkingSpaceController {
 
-    @Autowired
-    private ParkingSpaceService service;
+    private final ParkingSpaceService service;
 
     @PostMapping
     public ResponseEntity<ParkingSpace> createSpace(@RequestBody ParkingSpace space) {
         ParkingSpace created = service.createSpace(space);
-        return ResponseEntity.ok(created);
+        // Created (201 Created) status code එකක් Return කිරීම REST Best Practice එකකි
+        return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity<List<ParkingSpace>> getAllSpaces(@RequestParam(required = false) String location) {
         List<ParkingSpace> spaces;
-        if (location != null) {
+        if (location != null && !location.trim().isEmpty()) {
             spaces = service.filterByLocation(location);
         } else {
             spaces = service.getAllSpaces();
@@ -52,7 +54,9 @@ public class ParkingSpaceController {
     }
 
     @PatchMapping("/{spaceId}/status")
-    public ResponseEntity<ParkingSpace> updateStatus(@PathVariable Long spaceId, @RequestParam ParkingStatus status) {
+    public ResponseEntity<ParkingSpace> updateStatus(
+            @PathVariable Long spaceId,
+            @RequestParam ParkingStatus status) {
         ParkingSpace updated = service.updateStatus(spaceId, status);
         return ResponseEntity.ok(updated);
     }

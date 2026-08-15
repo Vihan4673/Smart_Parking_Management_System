@@ -1,7 +1,7 @@
-package lk.ijse.user_service.component;
+package lk.ijse.userservice.component;
 
-import lk.ijse.user_service.dto.ReservationDTO;
-import lk.ijse.user_service.util.ParkingSpaceClient;
+import lk.ijse.userservice.dto.ReservationDTO;
+import lk.ijse.userservice.util.ParkingSpaceClient;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
